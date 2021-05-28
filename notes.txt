@@ -1,0 +1,198 @@
+===
+CSS
+===
+
+## position
+- position: static;
+    . padrão
+    . local onde foi criado
+- position: relative;
+    . mudar a posição do elemento a partir de sua posição inicial
+    . a partir disso posso fazer o que quiser
+    . mudar left, right, top, bottom
+    . o ponto inicial dele é onde ele foi criado
+- position: absolute;
+    . muda o ponto inicial do elemento
+    . pode ser absoluto em relação a outro coisa
+    . a página toda, ao cabeçalho, ao elemento pai, etc
+    . quando coloca isso, o elemento sai de onde está e "vai pra frente""
+    . ele não ocupa mais aquele espaço
+    . com isso podemos posicionar ele onde quisermos
+    . ao colocarmos só absoluto, ele fica absoluto ao navegador
+    . porém se quisermos que ele fique dentro de algo ou acompanhando algo:
+        . preciso que essa caixa/div também tenha um posicionamento
+        . esse outro elemento externo tem que ser position: relative;
+    . dessa forma o elemento absoluto é absoluto em relação ao elemento relativo
+
+## block
+- quando temos uma lista, cada elemento da lista é um bloco
+- block = ocupa 100% da largura da página
+
+## inline
+- exibe somente o conteúdo dentro do elemento, não pega toda a página
+- coupam o tamanho de seu próprio conteúdo
+
+## inline-block
+- exibe somente o conteúdo porém podemos alterar propriedades de largura etc tamanho
+- coupam o tamanho de seu próprio conteúdo
+- se coloco isso numa lista (ul), todos seus elementos vão ficar lado a lado
+- diferente do block que cada um ocupa uma linha
+- quando estamos usando 100% e queremos que elementos fiquem ao lado um do outro dentro destes 100%, no próprio html eles precisam estar colados, sem espaço entre eles
+
+## hover
+- quando passa o mouse por cima
+
+## active
+- quando o elemento está ativo
+
+## transition
+- posso colocar essa propriedade em um botao:hover por exemplo
+- transition: 0.5s backgorund
+- isso quer dizer que a mudança da cor background do botão leva 0.5s
+- posso colocar all em vez de background se isso se aplicar a todos os elementos do hover
+
+## cursor
+- pointer -> em hover, para mostrar que é um link -> é a mãozinha
+
+## transform
+- scale() -> transforma a escala do botão, ou elemento, por exemplo
+- scale(1.2) -> aumenta em 20% a escala do elemento, seu tamanho
+- outras transformações -> rotate(70deg) por exemplo
+- para ler todas, colocar uma ao lado da outro no transform
+
+## table
+- thead -> dentro tem tr (row) -> dentro tem th (em vez de td)
+- tbody -> dentro tem tr -> dentro tem td (células)
+
+## pseudo-classes
+- para pegar o primeiro ou último -> first-child ou last-child
+- para pegar 1 específico -> nth-child(x) sendo que x pode ser 1, 2, 3...
+- posso usar n junto -> exemplo: (2n) para pegar os pares
+
+## gradiente
+- background: linear-gradient (90deg*, 50%** cor1, cor2 + quantas cores eu quiser!)
+    * posso colocar graus ou não (opcional)
+    ** posso colocar o quanto que quero da pág nesta cor antes de começar o restante (opcional)
+- radial-gradient tb existe
+
+## pseudo-elementos
+- elementos que criamos no css que não existem no hhtml
+- consigo pegar e estilizar a primeira letra de uma frase por exemplo
+- ex: .titulo-principal::first-letter
+
+## pseudo-classe
+- ::before
+- ::after
+- posso incluir elementos em css que não estou no HTML
+- posso colocar content: "...." e colocar algo lá
+- mas é só um conteúdo de exibição 
+
+## seletor avançado
+
+### filhos (>)
+- > (seleciona o filho direto de um elemento)
+- ex: main > p -> seleciona os filhos p diretos do main e ignora os restos que são netos por exemplo
+
+### irmão mais próximo (+)
+- seleciono o irmão do elemento âncora
+- o irmão mais próximo
+- ex: img + p -> seleciona o p do lado da imagem
+
+### todos os irmãos (~)
+- seleciona todos os elementos irmãos do elemento âncora
+- ex: img ~ p -> seleciona todos os p irmãos desta imagem 
+
+## excluir um elemento da seleção (:not(x))
+- excluir um elemento da seleção que estou fazendo
+- ex: main p:not(descricao) -> estou selecionando todos os p dentro do main menos o p com id/classe missao
+
+## calc
+- exemplo calc(40% - 26px)
+- entre () vai o primeiro valor, a operação e o segundo valor
+- pdoe encadear outras operações também 
+
+## opcaticy
+- vai de 0 a 1 (que seria 100%)
+- quanto menor, mais claro
+- é possível usar em tudo (elementos e cores)
+
+## sombra, shadow
+exemplo: box-shadow: 10px 10px 5px #000; 
+- sintaxe: x y blur intensidade da borda cor 
+- pode adicionar várias, usando vírgula
+- exemplo: box-shadow: inset;
+- inset => sombra interna
+-> sombras nos textos = text-shadow e valores são = 
+
+
+
+====
+HTML
+====
+
+## label e input
+- sempre andam juntos no form
+- input -> campo -> tem id único
+- label -> etiqueta do campo -> for ="" aqui dentro vai o id único do input a que se refere
+- ou eu posso colocar o input dentro do label
+
+## textarea
+- aceita falar quantas colunas (cols) e fileiras (rows)
+
+## submit
+- todo formulário tem um input do tipo "submit"
+- value="Enviar formulário" -> este valor é o que vai aparecer no botão 
+
+## input - tipo "radio"
+- para podermos clicar em apenas um por vez
+- todos radio tem que ter name="" tendo o mesmo valor, fazendo parte do mesmo grupo
+- ex: todos possuem name="contato"
+
+## select
+- não é um input, é um select
+- aquele que vc escolhe opções em um dropdown
+
+## required
+- colocar essa palavra dentro das tags inputs que forem obrigatórias
+
+## checked
+- quando vc quer que fique "checado" essa opção como padrão
+
+## palceholder
+- sempre colocar nos inputs
+
+## fieldset
+- tag html referente às informações de um conjunto de campos
+- ex: todos os dados referentes ao cartão de crédito ficam dentro de um fieldset
+
+## legend
+- título de um fieldset (em vez de p)
+
+## section
+- conteúdo fechado em si mesmo, com título e descrição
+
+## class vs id
+- estilo = classe
+- comportamento = id
+
+## float
+- "levanta na pág"
+- flutua e os outros elementos ficam em volta dele
+- coloco como valor o lado para o qual eu quero que ele flutue
+- todos os elementos abaixo ficam afetados por ele
+
+## iframe
+- janela para um conteúdo externo
+- ex: google maps
+
+
+
+
+==================
+UNIDADES RELATIVAS
+==================
+
+## em
+- referência proporcional do px
+- 2em -> 2 x o tamanho base estabelecido
+- padrão é sempre 16px se não falei outro, então seria 32px = 2em
